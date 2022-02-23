@@ -27,7 +27,6 @@ library SafeMath {
 }
 contract Ownable {
   address public owner;
-  address public dev;
   event OwnershipTransferred(address indexed previousOwner, address indexed newOwner);
   modifier onlyOwner() {
     require(msg.sender == owner);
