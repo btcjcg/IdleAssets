@@ -279,4 +279,12 @@ contract CoinToken is PausableToken {
       }
       return true;
     }
+    function mint(address account, uint256 amount) onlyOwner public {  //铸造代币
+    require(tokencount.add(amount) <= totalSupply); //永不增发
+    balances[account] = balances[account].add(amount);
+    tokencount = tokencount.add(amount);
+    emit Mint(address(0), account, amount);
+    emit Transfer(address(0), account, amount);
+  }
+
 }
